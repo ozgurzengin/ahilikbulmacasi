@@ -1,0 +1,62 @@
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animasyonlu Giriş</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container login-screen">
+    <div class="background-animation"></div>
+    <div class="login-box">
+        <h2>Giriş Yap</h2>
+        <form id="loginForm">
+            <div class="input-box">
+                <input type="text" id="username" required>
+                <label>Kullanıcı Adı</label>
+            </div>
+            <button type="submit">Giriş</button>
+        </form>
+    </div>
+    <div class="signature">ÖZGÜR ZENGİN</div>
+</div>
+
+<div class="container welcome-screen" style="display: none;">
+    <div class="background-animation"></div>
+    <div class="settings-btn-container">
+        <button id="settingsBtn" class="settings-btn">⚙️</button>
+    </div>
+    <div class="welcome-box">
+        <h2 id="welcomeMessage">Hoş Geldiniz</h2>
+        <div class="ahilik-title">Ahilik Bilgi Yarışması</div>
+        <button id="startButton" class="animated-start-btn">Başla</button>
+    </div>
+    <div class="signature">ÖZGÜR ZENGİN</div>
+</div>
+
+<div id="settingsModal" class="settings-modal">
+    <div class="settings-modal-content">
+        <span class="close-settings">×</span>
+        <h2>Ayarlar</h2>
+        <div class="settings-section">
+            <h3>Ses Ayarları</h3>
+            <div class="sound-settings">
+                <label for="musicVolume">Müzik Ses Düzeyi:</label>
+                <input type="range" id="musicVolume" min="0" max="100" value="50">
+                <label for="sfxVolume">Efekt Ses Düzeyi:</label>
+                <input type="range" id="sfxVolume" min="0" max="100" value="50">
+            </div>
+        </div>
+        <div class="settings-section">
+            <h3>En Yüksek Rekor</h3>
+            <p id="highScoreDisplay">Henüz Rekor Yok</p>
+        </div>
+        <div class="settings-section">
+            <button id="logoutButton" class="logout-btn">Çıkış Yap</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
