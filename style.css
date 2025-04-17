@@ -1,171 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body, html {
+    height: 100%;
+    background-color: #0e0e0e;
+    overflow: hidden;
 }
 
 .container {
-    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #1a1a1a;
-    position: relative;
-    overflow: hidden;
+    flex-direction: column;
 }
 
 .background-animation {
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 1;
-    background: linear-gradient(45deg, #ff0055, #00ff99, #0099ff);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    opacity: 0.3;
+    background: linear-gradient(135deg, #1a1a40, #0e0e0e);
+    animation: backgroundMove 10s linear infinite;
+    z-index: -1;
 }
 
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+@keyframes backgroundMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-.login-box, .welcome-box {
-    width: 400px;
+.login-box {
+    background: rgba(255, 255, 255, 0.05);
     padding: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    z-index: 2;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     text-align: center;
+    backdrop-filter: blur(10px);
 }
 
-.login-box h2, .welcome-box h2 {
-    margin-bottom: 30px;
+.login-box h2 {
     color: #fff;
-    font-size: 2em;
+    margin-bottom: 20px;
+    font-size: 20px;
 }
 
 .input-box {
     position: relative;
-    margin-bottom: 30px;
+    margin: 20px 0;
 }
 
 .input-box input {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
-    border: none;
-    border-bottom: 2px solid #fff;
-    outline: none;
     background: transparent;
-    transition: 0.5s;
+    border: 2px solid #00f2ff;
+    padding: 10px 15px;
+    width: 250px;
+    color: #fff;
+    border-radius: 10px;
+    outline: none;
 }
 
 .input-box label {
     position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 0;
-    font-size: 16px;
-    color: #fff;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #00f2ff;
     pointer-events: none;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .input-box input:focus ~ label,
 .input-box input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #03e9f4;
+    top: -10px;
+    left: 10px;
     font-size: 12px;
-}
-
-button {
-    width: 100%;
-    padding: 10px 20px;
-    background: #03e9f4;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.5s;
-}
-
-button:hover {
-    background: #05b8c2;
-    letter-spacing: 2px;
+    background: #0e0e0e;
+    padding: 0 5px;
 }
 
 .animated-start-btn {
-    animation: pulse 2s infinite;
+    background: #00f2ff;
+    color: #0e0e0e;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #00f2ff;
+    margin-top: 10px;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.signature {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: transparent;
-    background: linear-gradient(45deg, red, green, blue);
-    background-clip: text;
-    -webkit-background-clip: text;
-    animation: rgb-shift 3s linear infinite;
-}
-
-@keyframes rgb-shift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.ahilik-title {
-    font-size: 2em;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: transparent;
-    background: linear-gradient(45deg, red, green, blue);
-    background-clip: text;
-    -webkit-background-clip: text;
-    animation: rgb-shift 3s linear infinite;
-    background-size: 400% 400%;
+.animated-start-btn:hover {
+    background: #0e0e0e;
+    color: #00f2ff;
+    box-shadow: 0 0 20px #00f2ff, 0 0 40px #00f2ff;
 }
 
 .settings-btn-container {
     position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 3;
+    display: flex;
 }
 
 .settings-btn {
@@ -174,45 +119,52 @@ button:hover {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     cursor: pointer;
     transition: background 0.3s ease;
+    animation: pulse 2s infinite;
 }
 
 .settings-btn:hover {
     background: rgba(255, 255, 255, 0.3);
 }
 
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
 .settings-modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 99;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
 }
 
 .settings-modal-content {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    backdrop-filter: blur(10px);
-    width: 80%;
-    max-width: 500px;
+    background-color: #1a1a40;
     padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.5);
+    width: 400px;
+    max-width: 90%;
+    color: white;
     position: relative;
-    color: #fff;
 }
 
-.close-settings {
+.close-settings,
+.close-news {
     color: #fff;
     position: absolute;
     top: 10px;
@@ -223,196 +175,43 @@ button:hover {
 }
 
 .settings-section {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .sound-settings label {
     display: block;
-    margin-top: 10px;
-    color: #03e9f4;
+    margin-bottom: 10px;
 }
 
-.sound-settings input[type="range"] {
+input[type="range"] {
     width: 100%;
-    margin-bottom: 15px;
 }
 
-.countdown-screen {
-    text-align: center;
+/* İmza */
+.signature {
+    position: absolute;
+    bottom: 20px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
 }
 
-.countdown-box {
-    width: 300px;
-    height: 300px;
-    display: flex;
+/* Haberler Butonu */
+.news-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
-    position: relative;
-}
-
-.countdown-number {
-    font-size: 10em;
-    color: #fff;
-    font-weight: bold;
-    text-shadow: 0 0 20px rgba(3, 233, 244, 0.7);
-    animation: countdownPulse 1s ease-in-out;
-}
-
-@keyframes countdownPulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-}
-
-.quiz-screen {
-    text-align: center;
-}
-
-.quiz-box {
-    width: 80%;
-    max-width: 600px;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    padding: 30px;
-    z-index: 2;
-}
-
-.question {
-    font-size: 1.5em;
-    color: #fff;
-    margin-bottom: 20px;
-}
-
-.options-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.option-btn {
-    background: #03e9f4;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 15px;
-    font-size: 16px;
+    font-size: 24px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background 0.3s ease;
+    animation: pulse 2s infinite;
 }
 
-.option-btn:hover {
-    background: #05b8c2;
-}
-
-.option-btn.correct-answer {
-    background: #4CAF50;  
-    color: white;
-}
-
-.option-btn.incorrect-answer {
-    background: #F44336;  
-    color: white;
-}
-
-.option-btn:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-.return-to-menu-btn {
-    margin-top: 20px;
-    background: #03e9f4;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.return-to-menu-btn:hover {
-    background: #05b8c2;
-    letter-spacing: 1px;
-}
-
-.question-timer {
-    transition: width 1s linear;
-}
-
-.title-display {
-    font-size: 1.8em;
-    font-weight: bold;
-    margin-top: 20px;
-    color: transparent;
-    background: linear-gradient(45deg, red, green, blue);
-    background-clip: text;
-    -webkit-background-clip: text;
-    animation: rgb-shift 3s linear infinite, titlePulse 2s ease-in-out infinite;
-    background-size: 400% 400%;
-}
-
-@keyframes titlePulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-
-.logout-btn {
-    width: 100%;
-    padding: 10px 20px;
-    background: #F44336;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-    margin-top: 20px;
-}
-
-.logout-btn:hover {
-    background: #d32f2f;
-    letter-spacing: 1px;
-}
-
-@media (max-width: 480px) {
-    .login-box, .welcome-box {
-        width: 90%;
-        padding: 20px;
-    }
-    .signature {
-        font-size: 14px;
-        bottom: 10px;
-        right: 10px;
-    }
-    .settings-btn-container {
-        top: 10px;
-        right: 10px;
-    }
-    
-    .settings-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-    }
-    .ahilik-title {
-        font-size: 1.5em;
-    }
-    .settings-modal-content {
-        width: 95%;
-        padding: 20px;
-    }
-    .options-container {
-        grid-template-columns: 1fr;
-    }
+.news-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
