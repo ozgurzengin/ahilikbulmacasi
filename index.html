@@ -1,62 +1,73 @@
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animasyonlu Giriş</title>
+    <title>Ahilik Uygulaması</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container login-screen">
-    <div class="background-animation"></div>
-    <div class="login-box">
-        <h2>Giriş Yap</h2>
-        <form id="loginForm">
+    <div class="container">
+        <div class="background-animation"></div>
+
+        <div class="settings-btn-container">
+            <button id="settingsBtn" class="settings-btn">⚙️</button>
+            <button id="newsBtn" class="news-btn">🗞️</button>
+        </div>
+
+        <div class="login-box">
+            <h2>Giriş Yap</h2>
             <div class="input-box">
-                <input type="text" id="username" required>
+                <input type="text" required>
                 <label>Kullanıcı Adı</label>
             </div>
-            <button type="submit">Giriş</button>
-        </form>
-    </div>
-    <div class="signature">ÖZGÜR ZENGİN</div>
-</div>
+            <button class="animated-start-btn">Başla</button>
+        </div>
 
-<div class="container welcome-screen" style="display: none;">
-    <div class="background-animation"></div>
-    <div class="settings-btn-container">
-        <button id="settingsBtn" class="settings-btn">⚙️</button>
+        <div class="signature">AhilikApp</div>
     </div>
-    <div class="welcome-box">
-        <h2 id="welcomeMessage">Hoş Geldiniz</h2>
-        <div class="ahilik-title">Ahilik Bilgi Yarışması</div>
-        <button id="startButton" class="animated-start-btn">Başla</button>
-    </div>
-    <div class="signature">ÖZGÜR ZENGİN</div>
-</div>
 
-<div id="settingsModal" class="settings-modal">
-    <div class="settings-modal-content">
-        <span class="close-settings">×</span>
-        <h2>Ayarlar</h2>
-        <div class="settings-section">
-            <h3>Ses Ayarları</h3>
-            <div class="sound-settings">
-                <label for="musicVolume">Müzik Ses Düzeyi:</label>
-                <input type="range" id="musicVolume" min="0" max="100" value="50">
-                <label for="sfxVolume">Efekt Ses Düzeyi:</label>
-                <input type="range" id="sfxVolume" min="0" max="100" value="50">
+    <!-- Ayarlar Modali -->
+    <div id="settingsModal" class="settings-modal">
+        <div class="settings-modal-content">
+            <span class="close-settings">×</span>
+            <h2>Ayarlar</h2>
+            <div class="settings-section sound-settings">
+                <label for="volume">Ses Seviyesi</label>
+                <input type="range" id="volume" name="volume" min="0" max="100">
             </div>
         </div>
-        <div class="settings-section">
-            <h3>En Yüksek Rekor</h3>
-            <p id="highScoreDisplay">Henüz Rekor Yok</p>
-        </div>
-        <div class="settings-section">
-            <button id="logoutButton" class="logout-btn">Çıkış Yap</button>
+    </div>
+
+    <!-- Haberler Modali -->
+    <div id="newsModal" class="settings-modal">
+        <div class="settings-modal-content">
+            <span class="close-news">×</span>
+            <h2>Güncellemeler</h2>
+            <div class="settings-section">
+                <p>🆕 Yeni seviyeler eklendi!</p>
+                <p>🎵 Arka plan müzikleri güncellendi.</p>
+                <p>🔥 Performans iyileştirmeleri yapıldı.</p>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="script.js"></script>
+    <script>
+        // Ayarlar modalı
+        document.getElementById("settingsBtn").addEventListener("click", () => {
+            document.getElementById("settingsModal").style.display = "flex";
+        });
+        document.querySelector(".close-settings").addEventListener("click", () => {
+            document.getElementById("settingsModal").style.display = "none";
+        });
+
+        // Haberler modalı
+        document.getElementById("newsBtn").addEventListener("click", () => {
+            document.getElementById("newsModal").style.display = "flex";
+        });
+        document.querySelector(".close-news").addEventListener("click", () => {
+            document.getElementById("newsModal").style.display = "none";
+        });
+    </script>
 </body>
 </html>
