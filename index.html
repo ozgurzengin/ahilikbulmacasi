@@ -12,16 +12,14 @@
       color: white;
     }
 
-    .settings-btn-container {
+    .settings-container {
       position: absolute;
       top: 20px;
       right: 20px;
-      z-index: 3;
-      display: flex;
-      gap: 10px;
+      z-index: 2;
     }
 
-    .settings-btn, .news-btn {
+    .settings-button {
       background: rgba(255, 255, 255, 0.2);
       border: none;
       border-radius: 50%;
@@ -36,13 +34,13 @@
       animation: pulse 2s infinite;
     }
 
-    .settings-btn:hover, .news-btn:hover {
+    .settings-button:hover {
       background: rgba(255, 255, 255, 0.3);
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+      50% { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
 
@@ -86,26 +84,15 @@
 </head>
 <body>
 
-  <div class="settings-btn-container">
-    <button class="settings-btn" onclick="openSettings()">⚙️</button>
-    <button class="news-btn" onclick="openNews()">📰</button>
+  <div class="settings-container">
+    <button class="settings-button" onclick="openSettings()">⚙️</button>
   </div>
 
-  <!-- Ayarlar Modal -->
   <div id="settingsModal" class="settings-modal">
     <div class="settings-modal-content">
       <span class="close-settings" onclick="closeSettings()">&times;</span>
       <h2>Ayarlar</h2>
-      <p>Buraya ayarlarla ilgili içerik ekle.</p>
-    </div>
-  </div>
-
-  <!-- Haberler Modal -->
-  <div id="newsModal" class="settings-modal">
-    <div class="settings-modal-content">
-      <span class="close-settings" onclick="closeNews()">&times;</span>
-      <h2>Haberler</h2>
-      <p>Buraya haberlerle ilgili içerik ekle.</p>
+      <p>Buraya ayarlarla ilgili içerik gelecek.</p>
     </div>
   </div>
 
@@ -116,14 +103,6 @@
 
     function closeSettings() {
       document.getElementById("settingsModal").style.display = "none";
-    }
-
-    function openNews() {
-      document.getElementById("newsModal").style.display = "flex";
-    }
-
-    function closeNews() {
-      document.getElementById("newsModal").style.display = "none";
     }
   </script>
 
