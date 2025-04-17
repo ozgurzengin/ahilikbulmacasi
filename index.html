@@ -1,73 +1,131 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahilik Uygulaması</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Ayarlar ve Haberler</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #184e3b;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    .settings-btn-container {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 3;
+      display: flex;
+      gap: 10px;
+    }
+
+    .settings-btn, .news-btn {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .settings-btn:hover, .news-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .settings-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .settings-modal-content {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+      width: 80%;
+      max-width: 500px;
+      padding: 30px;
+      position: relative;
+      color: #fff;
+      text-align: center;
+    }
+
+    .close-settings {
+      color: #fff;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="background-animation"></div>
 
-        <div class="settings-btn-container">
-            <button id="settingsBtn" class="settings-btn">⚙️</button>
-            <button id="newsBtn" class="news-btn">🗞️</button>
-        </div>
+  <div class="settings-btn-container">
+    <button class="settings-btn" onclick="openSettings()">⚙️</button>
+    <button class="news-btn" onclick="openNews()">📰</button>
+  </div>
 
-        <div class="login-box">
-            <h2>Giriş Yap</h2>
-            <div class="input-box">
-                <input type="text" required>
-                <label>Kullanıcı Adı</label>
-            </div>
-            <button class="animated-start-btn">Başla</button>
-        </div>
-
-        <div class="signature">AhilikApp</div>
+  <!-- Ayarlar Modal -->
+  <div id="settingsModal" class="settings-modal">
+    <div class="settings-modal-content">
+      <span class="close-settings" onclick="closeSettings()">&times;</span>
+      <h2>Ayarlar</h2>
+      <p>Buraya ayarlarla ilgili içerik ekle.</p>
     </div>
+  </div>
 
-    <!-- Ayarlar Modali -->
-    <div id="settingsModal" class="settings-modal">
-        <div class="settings-modal-content">
-            <span class="close-settings">×</span>
-            <h2>Ayarlar</h2>
-            <div class="settings-section sound-settings">
-                <label for="volume">Ses Seviyesi</label>
-                <input type="range" id="volume" name="volume" min="0" max="100">
-            </div>
-        </div>
+  <!-- Haberler Modal -->
+  <div id="newsModal" class="settings-modal">
+    <div class="settings-modal-content">
+      <span class="close-settings" onclick="closeNews()">&times;</span>
+      <h2>Haberler</h2>
+      <p>Buraya haberlerle ilgili içerik ekle.</p>
     </div>
+  </div>
 
-    <!-- Haberler Modali -->
-    <div id="newsModal" class="settings-modal">
-        <div class="settings-modal-content">
-            <span class="close-news">×</span>
-            <h2>Güncellemeler</h2>
-            <div class="settings-section">
-                <p>🆕 Yeni seviyeler eklendi!</p>
-                <p>🎵 Arka plan müzikleri güncellendi.</p>
-                <p>🔥 Performans iyileştirmeleri yapıldı.</p>
-            </div>
-        </div>
-    </div>
+  <script>
+    function openSettings() {
+      document.getElementById("settingsModal").style.display = "flex";
+    }
 
-    <script>
-        // Ayarlar modalı
-        document.getElementById("settingsBtn").addEventListener("click", () => {
-            document.getElementById("settingsModal").style.display = "flex";
-        });
-        document.querySelector(".close-settings").addEventListener("click", () => {
-            document.getElementById("settingsModal").style.display = "none";
-        });
+    function closeSettings() {
+      document.getElementById("settingsModal").style.display = "none";
+    }
 
-        // Haberler modalı
-        document.getElementById("newsBtn").addEventListener("click", () => {
-            document.getElementById("newsModal").style.display = "flex";
-        });
-        document.querySelector(".close-news").addEventListener("click", () => {
-            document.getElementById("newsModal").style.display = "none";
-        });
-    </script>
+    function openNews() {
+      document.getElementById("newsModal").style.display = "flex";
+    }
+
+    function closeNews() {
+      document.getElementById("newsModal").style.display = "none";
+    }
+  </script>
+
 </body>
 </html>
